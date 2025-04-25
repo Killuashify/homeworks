@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function getNumberOver100() {
+        let lastInput = null;
+
+        for (let i = 0; i < 10; i++) {
+          let input = prompt("Enter a number greater than 100:");
+
+          if (input === null) {
+            alert("Input canceled.");
+            console.log("Input canceled.");
+            return;
+          }
+
+          let number = Number(input);
+
+          if (number > 100) {
+            alert("Thank you! You entered: " + number);
+            console.log("You entered:", number);
+            return;
+          } else {
+            alert("The number must be greater than 100. Try again.");
+            lastInput = number;
+          }
+        }
+
+        alert(
+          "Number of attempts exhausted. Last number entered: " + lastInput
+        );
+        console.log("Last entered number:", lastInput);
+      }
+
+      getNumberOver100();
+    </script>
+  </body>
+</html>
