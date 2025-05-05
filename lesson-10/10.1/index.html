@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const user = {
+        name: "Stas",
+        age: 17,
+        location: "Bratislava, Slovakia",
+        email: "mail@example.com",
+
+        getInfo: function () {
+          return `Name: ${this.name}\nAge: ${this.age}\nPlace: ${this.location}\nEmail: ${this.email}`;
+        },
+
+        showInfo: function () {
+          console.log(this.getInfo());
+        },
+      };
+
+      user.showInfo();
+    </script>
+  </body>
+</html>

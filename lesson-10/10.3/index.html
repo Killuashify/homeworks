@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const contactBook = {
+        contacts: [
+          {
+            name: "Ivan Petrenko",
+            phone: "+380888888888",
+            email: "ivan.petrenko@example.com",
+          },
+          {
+            name: "Olena Kovalchuk",
+            phone: "+380999999999",
+            email: "olena.kovalchuk@example.com",
+          },
+        ],
+
+        addContact: function (name, phone, email) {
+          this.contacts.push({ name, phone, email });
+          console.log(`Contact ${name} has been added.`);
+        },
+
+        findContactByName: function (searchName) {
+          const found = this.contacts.find(
+            (contact) => contact.name.toLowerCase() === searchName.toLowerCase()
+          );
+
+          if (found) {
+            console.log("Contact found:");
+            console.log(found);
+          } else {
+            console.log("Contact not found.");
+          }
+        },
+      };
+
+      // Usage examples:
+      contactBook.findContactByName("Olena Kovalchuk");
+
+      contactBook.addContact(
+        "Andriy Shevchenko",
+        "+380777777777",
+        "andriy.shevchenko@example.com"
+      );
+
+      contactBook.findContactByName("Andriy Shevchenko");
+      contactBook.findContactByName("Andriy Shevchenko");
+    </script>
+  </body>
+</html>
