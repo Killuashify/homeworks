@@ -7,11 +7,18 @@ addTaskBtn.addEventListener("click", function () {
 
   if (taskText !== "") {
     const li = document.createElement("li");
-    li.innerHTML = `
-      <span>${taskText}</span>
-      <button class="delete-btn">Remove</button>
-    `;
+
+    const span = document.createElement("span");
+    span.textContent = taskText;
+
+    const deleteBtn = document.createElement("button");
+    deleteBtn.textContent = "Remove";
+    deleteBtn.classList.add("delete-btn");
+
+    li.appendChild(span);
+    li.appendChild(deleteBtn);
     taskList.appendChild(li);
+
     taskInput.value = "";
   } else {
     alert("Enter the task!");
