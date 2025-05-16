@@ -35,7 +35,7 @@ function clearErrors() {
 }
 
 function validateName(value) {
-  const nameRegex = /^[A-Za-z]$/;
+  const nameRegex = /^[A-Za-z]{2,}$/;
   if (!nameRegex.test(value)) {
     showError("nameError", "Only Latin letters, no symbols at start/end");
     return false;
@@ -45,7 +45,8 @@ function validateName(value) {
 }
 
 function validateMessage(value) {
-  if (value.length < 5) {
+  const messageRegex = /^.{5,}$/;
+  if (!messageRegex.test(value)) {
     showError("messageError", "Message must be at least 5 characters");
     return false;
   }
