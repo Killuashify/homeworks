@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Погода</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="widget">
+      <div class="top">
+        <div class="date-time">
+          <div id="date" class="date"></div>
+          <div id="time" class="time"></div>
+        </div>
+        <div id="weather-icon" class="icon">🌤️</div>
+      </div>
+      <div class="info">
+        <div class="temp"><span id="temp">--</span>°C</div>
+        <div class="feels">Feels like: <span id="feels_like">--</span>°C</div>
+        <div class="desc" id="weather">---</div>
+        <div class="details">
+          <div>💧 Humidity: <span id="humidity">--</span>%</div>
+          <div>🌬️ Wind: <span id="wind">--</span> м/с</div>
+          <div>🧭 Pressure: <span id="pressure">--</span> hPa</div>
+        </div>
+        <button onclick="getWeather()">Refresh</button>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
