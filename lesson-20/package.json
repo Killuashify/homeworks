@@ -1,0 +1,23 @@
+{
+  "name": "front-end-pro",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Killuashify/homeworks.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Killuashify/homeworks/issues"
+  },
+  "homepage": "https://github.com/Killuashify/homeworks#readme",
+  "description": "",
+  "dependencies": {
+    "bootstrap": "^5.3.6",
+    "jquery": "^3.7.1"
+  }
+}

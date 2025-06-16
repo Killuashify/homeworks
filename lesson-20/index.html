@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="node_modules/bootstrap/dist/css/bootstrap.min.css"
+    />
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="p-4">
+    <div class="container">
+      <h2>My HomeWork List</h2>
+      <ul class="list-group" id="todo-list">
+        <li
+          class="list-group-item todo-item"
+          data-task="do an assignment from the teacher"
+        >
+          homework 1.1
+        </li>
+        <li
+          class="list-group-item todo-item"
+          data-task="do something of your own"
+        >
+          homework 1.2
+        </li>
+        <li
+          class="list-group-item todo-item"
+          data-task="do the most important task"
+        >
+          homework 1.3
+        </li>
+      </ul>
+    </div>
+
+    <div class="modal fade" id="taskModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="taskModalLabel">Homeworks</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+            ></button>
+          </div>
+          <div class="modal-body" id="taskText">homework</div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
