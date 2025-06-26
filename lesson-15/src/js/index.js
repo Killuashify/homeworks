@@ -1,3 +1,7 @@
+import "../scss/main.scss";
+import $ from "jquery";
+import * as bootstrap from "bootstrap";
+
 $(function () {
   const $form = $(".js--form");
   const $input = $(".js--form__input");
