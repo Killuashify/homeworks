@@ -42,7 +42,7 @@ $(function () {
 
       const $deleteBtn = $("<button>")
         .addClass("btn btn-danger btn-sm ms-2 todo-item__delete")
-        .text("Видалити")
+        .text("delete")
         .on("click", function () {
           todos.splice(index, 1);
           saveToLocalStorage();
