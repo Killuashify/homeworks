@@ -14,7 +14,7 @@ router.post("/", async (req, res) => {
   res.json(saved);
 });
 
-router.put("/:id", async (req, res) => {
+router.patch("/:id", async (req, res) => {
   const updated = await Todo.findByIdAndUpdate(req.params.id, req.body, {
     new: true,
   });
