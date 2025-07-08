@@ -1,39 +1,55 @@
-import React, { useState } from "react";
+import React, { Component } from "react";
 import { Container, Button } from "react-bootstrap";
 import EmojiBox from "./components/EmojiBox";
 import Winner from "./components/Winner";
 import Header from "./components/Header";
 import "./App.css";
 
-function App() {
-  const [results, setResults] = useState({});
-  const [showWinner, setShowWinner] = useState(false);
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      results: JSON.parse(localStorage.getItem("emojiVotes")) || {},
+      showWinner: false,
+    };
+  }
 
-  const handleShowResults = () => {
-    setShowWinner(true);
+  setResults = (newResults) => {
+    this.setState({ results: newResults });
   };
 
-  const handleReset = () => {
+  handleShowResults = () => {
+    this.setState({ showWinner: true });
+  };
+
+  handleReset = () => {
     localStorage.removeItem("emojiVotes");
-    setResults({});
-    setShowWinner(false);
+    this.setState({ results: {}, showWinner: false });
   };
 
-  return (
-    <Container className="app py-4">
-      <Header />
-      <EmojiBox results={results} setResults={setResults} />
-      <div className="my-3">
-        <Button variant="primary" onClick={handleShowResults} className="me-2">
-          Show results
-        </Button>
-        <Button variant="danger" onClick={handleReset}>
-          Cleat results
-        </Button>
-      </div>
-      {showWinner && <Winner results={results} />}
-    </Container>
-  );
+  render() {
+    const { results, showWinner } = this.state;
+
+    return (
+      <Container className="app py-4">
+        <Header />
+        <EmojiBox results={results} setResults={this.setResults} />
+        <div className="my-3">
+          <Button
+            variant="primary"
+            onClick={this.handleShowResults}
+            className="me-2"
+          >
+            Show results
+          </Button>
+          <Button variant="danger" onClick={this.handleReset}>
+            Clear results
+          </Button>
+        </div>
+        {showWinner && <Winner results={results} />}
+      </Container>
+    );
+  }
 }
 
 export default App;

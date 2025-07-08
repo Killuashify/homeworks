@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { Component } from "react";
 
 const emojis = [
   { id: 1, icon: "😃" },
@@ -8,34 +8,46 @@ const emojis = [
   { id: 5, icon: "😍" },
 ];
 
-const EmojiBox = ({ results, setResults }) => {
-  const [votes, setVotes] = useState({});
+class EmojiBox extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      votes: props.results || {},
+    };
+  }
 
-  useEffect(() => {
-    setVotes(results);
-  }, [results]);
+  componentDidUpdate(prevProps) {
+    if (prevProps.results !== this.props.results) {
+      this.setState({ votes: this.props.results });
+    }
+  }
 
-  const handleVote = (id) => {
-    const newVotes = { ...votes, [id]: (votes[id] || 0) + 1 };
-    setVotes(newVotes);
-    setResults(newVotes);
+  handleVote = (id) => {
+    const newVotes = {
+      ...this.state.votes,
+      [id]: (this.state.votes[id] || 0) + 1,
+    };
+    this.setState({ votes: newVotes });
+    this.props.setResults(newVotes);
     localStorage.setItem("emojiVotes", JSON.stringify(newVotes));
   };
 
-  return (
-    <div className="emoji-wrapper">
-      {emojis.map((emoji) => (
-        <div
-          key={emoji.id}
-          style={{ cursor: "pointer", fontSize: "2rem" }}
-          onClick={() => handleVote(emoji.id)}
-        >
-          {emoji.icon}
-          <div>{votes[emoji.id] || 0}</div>
-        </div>
-      ))}
-    </div>
-  );
-};
+  render() {
+    return (
+      <div className="emoji-wrapper">
+        {emojis.map((emoji) => (
+          <div
+            key={emoji.id}
+            style={{ cursor: "pointer", fontSize: "2rem" }}
+            onClick={() => this.handleVote(emoji.id)}
+          >
+            {emoji.icon}
+            <div>{this.state.votes[emoji.id] || 0}</div>
+          </div>
+        ))}
+      </div>
+    );
+  }
+}
 
 export default EmojiBox;

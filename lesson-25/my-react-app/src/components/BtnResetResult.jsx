@@ -1,11 +1,15 @@
-import React from "react";
+import React, { Component } from "react";
 
-const BtnResetResult = ({ onReset }) => {
-  return (
-    <button onClick={onReset} className="btn-reset">
-      Clear results
-    </button>
-  );
-};
+class BtnResetResult extends Component {
+  render() {
+    const { onReset } = this.props;
+
+    return (
+      <button onClick={onReset} className="btn-reset">
+        Clear results
+      </button>
+    );
+  }
+}
 
 export default BtnResetResult;
