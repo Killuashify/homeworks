@@ -1,0 +1,37 @@
+.footer {
+  background: linear-gradient(135deg, #544a5e, #3f3750);
+  padding: 1rem 2rem;
+  color: white;
+  text-align: center;
+  font-family: "Open Sans", sans-serif;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+
+  .contacts {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+
+    a {
+      display: flex;
+      align-items: center;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: #a09e9e;
+      }
+
+      .icon {
+        margin-right: 0.5rem;
+        font-size: 1.2rem;
+      }
+    }
+  }
+}

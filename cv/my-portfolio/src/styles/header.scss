@@ -1,0 +1,46 @@
+header {
+  background: linear-gradient(135deg, #544a5e, #241d33);
+  color: #fff;
+  padding: 1.5rem 0;
+  text-align: center;
+  font-size: 2rem;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  animation: fadeInDown 0.6s ease;
+  border-bottom: 3px solid rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+}
+
+.header :last-child :hover {
+  color: #a09e9e;
+}
+
+.header .MuiButton-root {
+  margin-right: 5rem;
+}
+
+.header .MuiButton-root:last-child {
+  margin-right: 0;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.header .MuiButton-root {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  margin-right: 5rem;
+  font-size: 12;
+}
