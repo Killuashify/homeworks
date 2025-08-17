@@ -1,4 +1,3 @@
-// src/App.jsx
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { FETCH_TODOS, CLEAR_TODOS } from "./redux/todos/todosActions";
@@ -10,7 +9,7 @@ export default function App() {
   const todos = useSelector((state) => state.todos);
 
   useEffect(() => {
-    dispatch({ type: FETCH_TODOS });
+    dispatch(FETCH_TODOS());
   }, [dispatch]);
 
   return (
@@ -20,9 +19,7 @@ export default function App() {
       <TodoList />
       <footer>
         <p>Total number: {todos.length}</p>
-        <button onClick={() => dispatch({ type: CLEAR_TODOS })}>
-          Clear all
-        </button>
+        <button onClick={() => dispatch(CLEAR_TODOS())}>Clear all</button>
       </footer>
     </div>
   );

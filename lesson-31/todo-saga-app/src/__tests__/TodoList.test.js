@@ -1,15 +1,32 @@
 import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
-import TodoList from "../components/TodoList";
 import { Provider } from "react-redux";
-import { store } from "../redux/store";
+import { configureStore } from "@reduxjs/toolkit";
+import todosReducer from "../redux/todos/todosSlice";
+import TodoList from "../components/TodoList";
 
-test("renders a todos list", () => {
-  render(
+function renderWithStore(preloadedState = { todos: [] }) {
+  const store = configureStore({
+    reducer: { todos: todosReducer },
+    preloadedState,
+  });
+
+  return render(
     <Provider store={store}>
       <TodoList />
     </Provider>
   );
+}
 
-  expect(screen.getByText(/No tasks/i)).toBeInTheDocument();
+describe("TodoList", () => {
+  test("renders empty list message", () => {
+    renderWithStore({ todos: [] });
+    expect(screen.getByText(/no tasks/i)).toBeInTheDocument();
+  });
+
+  test("renders list with one todo", () => {
+    const todo = { id: "1", title: "Test task", completed: false };
+    renderWithStore({ todos: [todo] });
+    expect(screen.getByText(/test task/i)).toBeInTheDocument();
+  });
 });

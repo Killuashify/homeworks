@@ -1,15 +1,32 @@
 import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
 import { Provider } from "react-redux";
-import { store } from "../redux/store";
+import configureStore from "redux-mock-store";
 import App from "../App";
 
-test("renders the application title", () => {
-  render(
-    <Provider store={store}>
-      <App />
-    </Provider>
-  );
+const mockStore = configureStore([]);
+const store = mockStore({
+  todos: [],
+});
 
-  expect(screen.getByText(/Todo/i)).toBeInTheDocument();
+describe("App component", () => {
+  test("renders the application title", () => {
+    render(
+      <Provider store={store}>
+        <App />
+      </Provider>
+    );
+
+    expect(screen.getByText(/Redux-Saga TODO/i)).toBeInTheDocument();
+  });
+
+  test("renders footer with total todos", () => {
+    render(
+      <Provider store={store}>
+        <App />
+      </Provider>
+    );
+
+    expect(screen.getByText(/Total number: 0/i)).toBeInTheDocument();
+  });
 });

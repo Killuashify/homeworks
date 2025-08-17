@@ -1,13 +1,12 @@
-export const FETCH_TODOS = "FETCH_TODOS";
-export const SET_TODOS = "SET_TODOS";
+import { createAction } from "@reduxjs/toolkit";
 
-export const ADD_TODO = "ADD_TODO";
-export const ADD_TODO_SUCCESS = "ADD_TODO_SUCCESS";
+export const FETCH_TODOS = createAction("FETCH_TODOS");
+export const SET_TODOS = createAction("SET_TODOS");
 
-export const DELETE_TODO = "DELETE_TODO";
+export const ADD_TODO = createAction("ADD_TODO");
+export const ADD_TODO_SUCCESS = createAction("ADD_TODO_SUCCESS");
 
-export const TOGGLE_TODO = "TOGGLE_TODO";
-
-export const EDIT_TODO = "EDIT_TODO";
-
-export const CLEAR_TODOS = "CLEAR_TODOS";
+export const DELETE_TODO = createAction("DELETE_TODO");
+export const TOGGLE_TODO = createAction("TOGGLE_TODO");
+export const EDIT_TODO = createAction("EDIT_TODO");
+export const CLEAR_TODOS = createAction("CLEAR_TODOS");

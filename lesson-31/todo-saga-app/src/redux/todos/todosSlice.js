@@ -7,9 +7,9 @@ const todosSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(SET_TODOS, (state, action) => action.payload)
+      .addCase(SET_TODOS, (state, action) => action.payload) // перезаписываем список
       .addCase(ADD_TODO_SUCCESS, (state, action) => {
-        state.push(action.payload);
+        state.push(action.payload); // добавляем новый todo
       });
   },
 });

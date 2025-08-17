@@ -2,10 +2,16 @@ import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
 import TodoItem from "../components/TodoItem";
 import { Provider } from "react-redux";
-import { store } from "../redux/store";
+import { configureStore } from "@reduxjs/toolkit";
+import todosReducer from "../redux/todos/todosSlice";
 
-test("render of one todo", () => {
-  const todo = { id: 1, title: "Test task", completed: false };
+const store = configureStore({
+  reducer: { todos: todosReducer },
+  preloadedState: { todos: [] },
+});
+
+test("renders one todo", () => {
+  const todo = { id: "1", title: "Test task", completed: false };
 
   render(
     <Provider store={store}>

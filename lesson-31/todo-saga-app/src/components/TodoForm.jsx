@@ -12,11 +12,8 @@ export default function TodoForm() {
     if (!title.trim()) return;
 
     dispatch({
-      type: ADD_TODO,
-      payload: {
-        title,
-        completed: false,
-      },
+      type: ADD_TODO.type,
+      payload: { title },
     });
 
     setTitle("");
